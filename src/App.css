@@ -1,0 +1,173 @@
+body {
+  --background: #f5f5f570;
+  --text-color: #313030;
+  --accent-color: #1d2f4d;
+
+  margin: 0;
+  color: var(--text-color);
+}
+
+.app-content {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr 0.5fr;
+  grid-template-rows: 0.5fr 1fr;
+  grid-template-areas:
+    "todo stopwatch drinkReminder"
+    "todo stopwatch youtube";
+  gap: 0.5rem;
+  padding: 2rem 3rem;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--background);
+  padding: 1.5rem 3rem;
+  border-radius: 1rem;
+  position: relative;
+}
+
+button {
+  font-size: 1.2rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 1.7px solid var(--accent-color);
+  background-color: transparent;
+  color: var(--accent-color);
+}
+
+button:hover {
+  cursor: pointer;
+  scale: 1.1;
+}
+
+.todo {
+  grid-area: todo;
+}
+
+.todo-input-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.todo-input {
+  margin: 0;
+  padding: 0.7rem 0.5rem;
+  outline: none;
+}
+
+.todo-button {
+  font-size: 1rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 50%;
+}
+
+.todo-list {
+  width: 100%;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 0.2rem;
+}
+
+.todo-checkbox {
+  margin: 0;
+  padding: 0;
+  width: auto;
+  margin-right: 1rem;
+}
+
+.todo-button.delete {
+  margin-left: auto;
+  opacity: 0.5;
+}
+
+.stopwatch {
+  grid-area: stopwatch;
+}
+
+.stopwatch .message {
+  font-size: 1.5rem;
+}
+
+.stopwatch .time {
+  font-size: 5rem;
+  padding: 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.stopwatch .controls {
+  display: flex;
+  gap: 1rem;
+}
+
+.drinkReminder {
+  grid-area: drinkReminder;
+}
+
+input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1.5px solid var(--text-color);
+  border-radius: 5%;
+  width: 80%;
+  margin-top: 1rem;
+}
+
+.water-glass {
+  width: 4rem;
+  height: 4rem;
+  border: 4px solid var(--accent-color);
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  position: relative;
+  overflow: hidden;
+}
+
+.water {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background-color: #6e9ff3;
+  transition: height 0.6s ease;
+}
+
+.mute-button {
+  border: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 2rem;
+}
+
+.youtube {
+  grid-area: youtube;
+}
+
+.youtube.content {
+  padding: 1rem;
+}
+
+.youtube iframe {
+  width: 100%;
+  height: 100%;
+}
