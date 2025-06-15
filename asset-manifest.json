@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/focus-toolkit/static/css/main.05b5f251.css",
-    "main.js": "/focus-toolkit/static/js/main.010096c8.js",
+    "main.css": "/focus-toolkit/static/css/main.aa142f4a.css",
+    "main.js": "/focus-toolkit/static/js/main.dadb1877.js",
     "static/media/bootstrap-icons.woff?": "/focus-toolkit/static/media/bootstrap-icons.1295669cd4e305c97f2c.woff",
     "static/media/bootstrap-icons.woff2?": "/focus-toolkit/static/media/bootstrap-icons.92ea18a81d737146ff04.woff2",
     "index.html": "/focus-toolkit/index.html",
-    "main.05b5f251.css.map": "/focus-toolkit/static/css/main.05b5f251.css.map",
-    "main.010096c8.js.map": "/focus-toolkit/static/js/main.010096c8.js.map"
+    "main.aa142f4a.css.map": "/focus-toolkit/static/css/main.aa142f4a.css.map",
+    "main.dadb1877.js.map": "/focus-toolkit/static/js/main.dadb1877.js.map"
   },
   "entrypoints": [
-    "static/css/main.05b5f251.css",
-    "static/js/main.010096c8.js"
+    "static/css/main.aa142f4a.css",
+    "static/js/main.dadb1877.js"
   ]
 }
