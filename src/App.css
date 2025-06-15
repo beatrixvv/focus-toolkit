@@ -55,6 +55,10 @@ button:hover {
   grid-area: todo;
 }
 
+.todo .content {
+  height: 80%;
+}
+
 .todo-input-container {
   display: flex;
   align-items: center;
@@ -75,7 +79,10 @@ button:hover {
 }
 
 .todo-list {
+  padding: 0 0.2rem;
   width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .todo-item {
@@ -83,6 +90,7 @@ button:hover {
   align-items: center;
   width: 100%;
   padding-bottom: 0.2rem;
+  word-break: break-word;
 }
 
 .todo-checkbox {
