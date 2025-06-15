@@ -1,40 +1,76 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import YouTube from "react-youtube";
 
 export default function YouTubePlayer() {
   const [playlistId, setPlaylistId] = useState<string | undefined>(
     "PLo3pNg0eiPc8HrbDZQ-8awp7JRoGVdftY"
   );
-  const opts = {
-    playerVars: {
-      listType: "playlist",
-      list: playlistId,
-      autoplay: 0,
-    },
-  };
+  const [videoId, setVideoId] = useState<string | undefined>(undefined);
+  const [opts, setOpts] = useState({
+    playerVars: playlistId
+      ? {
+          listType: "playlist",
+          list: playlistId,
+          autoplay: 0,
+        }
+      : videoId
+      ? {
+          autoplay: 0,
+        }
+      : {},
+  });
 
-  function extractID(url: string): string | undefined {
-    try {
-      const parsed = new URL(url);
-      const playlist = parsed.searchParams.get("list") ?? undefined;
-
-      return playlist;
-    } catch {
-      return undefined;
+  useEffect(() => {
+    if (playlistId && !videoId) {
+      const newOpts = {
+        playerVars: {
+          listType: "playlist",
+          list: playlistId,
+          autoplay: 0,
+        },
+      };
+      setOpts(newOpts);
+    } else if (playlistId && videoId) {
+      const newOpts = {
+        playerVars: {
+          listType: "playlist",
+          list: playlistId,
+          autoplay: 0,
+        },
+      };
+      setOpts(newOpts);
+    } else if (!playlistId && videoId) {
+      const newOpts = {
+        playerVars: {
+          autoplay: 0,
+        },
+      };
+      setOpts(newOpts);
+    } else {
+      setOpts({ playerVars: {} });
     }
-  }
+  }, [videoId, playlistId]);
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     const url = e.target.value;
-    const playlistID = extractID(url);
-    setPlaylistId(playlistID);
+    try {
+      const parsed = new URL(url);
+      const playlistID = parsed.searchParams.get("list") ?? undefined;
+      const videoID = parsed.searchParams.get("v") ?? undefined;
+
+      setPlaylistId(playlistID);
+      setVideoId(videoID);
+    } catch (error) {
+      console.error("Invalid URL", error);
+      return;
+    }
   }
 
   return (
     <div className="youtube container">
       <div className="content youtube">
         <h2>Play a Playlist</h2>
-        <YouTube opts={opts} />
+        <YouTube videoId={videoId} opts={opts} />
         <input type="url" placeholder="YouTube URL" onChange={handleChange} />
       </div>
     </div>
